@@ -1,0 +1,91 @@
+<!--
+  Guaita Apps - Suite d'eines autònomes per a arquitectura, BIM i documentació.
+  Copyright (c) 2026 Jordi Subirós
+  GNU Affero General Public License v3.0
+  See LICENSE file for details
+-->
+<!DOCTYPE html>
+<html lang="ca"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>guaitaCO2 — Manual d'ús</title><meta name="description" content="Manual d'ús de guaitaCO2: eina pedagògica de CO₂e embegut amb dades d'ÖKOBAUDAT."><link rel="alternate" hreflang="ca" href="../pageCAT/ajuda.html"><link rel="alternate" hreflang="en" href="../pagesENG/help.html"><style>
+:root{--bg:#0E1116;--bg-deep:#0B0D10;--bg-panel:#171B21;--bg-surface:#1E232B;--bg-hover:#252B34;--border:#2A313B;--border-strong:#4A5361;--text:#E7EAEE;--text-mid:#B9C0CA;--text-dim:#8B939F;--text-dim2:#5C6470;--accent:#D6FB41;--accent-line:#D6FB41;--accent-text:#D6FB41;--on-accent:#1A2000;--accent-soft:rgba(214,251,65,.08);--warn-bg:#3A2F10;--warn-t:#FFD98A;--warn-b:#F5B942}
+@media(prefers-color-scheme:light){:root{--bg:#F4F5F7;--bg-deep:#ECEEF1;--bg-panel:#FFFFFF;--bg-surface:#F1F3F5;--bg-hover:#E9ECF0;--border:#D5DAE0;--border-strong:#9AA3AE;--text:#161A20;--text-mid:#3D4652;--text-dim:#6B7380;--text-dim2:#8B939F;--accent-line:#8DB300;--accent-text:#5E7700;--accent-soft:rgba(141,179,0,.10);--warn-bg:#FDF0D0;--warn-t:#7A5200;--warn-b:#B86E00}}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:15px/1.6 'IBM Plex Sans','Space Grotesk',system-ui,-apple-system,sans-serif}
+code,kbd,.mono{font-family:'IBM Plex Mono',ui-monospace,Consolas,monospace}
+code{background:var(--bg-surface);border:1px solid var(--border);border-radius:4px;padding:1px 5px;font-size:.88em}
+kbd{background:var(--bg-surface);border:1px solid var(--border-strong);border-bottom-width:2px;border-radius:4px;padding:1px 6px;font-size:.82em}
+a{color:var(--accent-text)}
+.cells{display:inline-grid;grid-template-columns:13px 13px;gap:3px;vertical-align:middle}.cells span{display:block;width:13px;height:13px}
+.cells span:nth-child(1){background:#C6FF00}.cells span:nth-child(2){background:#FF2ECC}.cells span:nth-child(3){background:#00E5FF}.cells span:nth-child(4){background:#FFE500}
+.brand{display:flex;align-items:center;gap:10px;font:900 20px 'Arial Black',system-ui,sans-serif;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent-text)}
+.brand small{font:500 11px 'IBM Plex Mono',monospace;letter-spacing:2px;color:var(--text-dim);margin-left:2px;text-transform:lowercase}
+.hero{background:var(--bg-deep);border-bottom:2px solid var(--accent-line);padding:28px 20px 30px}
+.hero .in,.wrap,.fin{max-width:1060px;margin:0 auto}
+.tag{display:inline-block;margin-top:18px;font:600 10px 'IBM Plex Mono',monospace;letter-spacing:2px;text-transform:uppercase;color:var(--text-dim2)}
+h1{margin:6px 0 8px;font-size:34px;line-height:1.15}
+.lead{margin:0;max-width:720px;color:var(--text-mid);font-size:16.5px}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.btn{display:inline-block;padding:9px 16px;border:1px solid var(--border-strong);border-radius:5px;color:var(--text);text-decoration:none;font-weight:600;font-size:14px;background:var(--bg-surface)}
+.btn.pri{background:var(--accent);border-color:var(--accent-line);color:var(--on-accent)}
+.wrap{padding:26px 20px 10px;display:grid;grid-template-columns:210px 1fr;gap:34px}
+@media(max-width:820px){.wrap{grid-template-columns:1fr}.toc{position:static!important}}
+.toc{position:sticky;top:16px;align-self:start;font-size:13px}.toc a{display:block;padding:5px 10px;border-left:2px solid var(--border);color:var(--text-mid);text-decoration:none}
+.toc a:hover,.toc a.on{border-left-color:var(--accent-line);color:var(--accent-text);background:var(--accent-soft)}
+section{margin-bottom:34px}h2{margin:0;font:600 11px 'IBM Plex Mono',monospace;letter-spacing:2px;text-transform:uppercase;color:var(--accent-text)}
+.st{font-size:24px;font-weight:600;margin:2px 0 10px}h3{margin:18px 0 4px;font-size:16px}
+.note{border:1px dashed var(--border-strong);border-radius:5px;padding:10px 13px;color:var(--text-mid);font-size:14px;margin:12px 0}
+.note.warn{background:var(--warn-bg);border:1px solid var(--warn-b);color:var(--warn-t)}
+ol.steps{padding-left:22px}ol.steps li{margin:6px 0}
+table.tbl{width:100%;border-collapse:collapse;font-size:14px;margin:10px 0}table.tbl th,table.tbl td{border:1px solid var(--border);padding:7px 10px;text-align:left;vertical-align:top}table.tbl th{background:var(--bg-surface);font-size:12px;letter-spacing:.5px;text-transform:uppercase;color:var(--text-dim)}
+details{border:1px solid var(--border);border-radius:6px;margin:8px 0;background:var(--bg-panel)}summary{cursor:pointer;padding:9px 13px;font-weight:600}details p{margin:0;padding:0 13px 12px;color:var(--text-mid)}
+footer{margin-top:30px;border-top:2px solid var(--accent-line);background:var(--bg-deep);padding:18px 20px 22px;color:var(--text-dim);font-size:12.5px}
+.fb{display:flex;align-items:center;gap:8px;font:900 12px 'Arial Black',system-ui;letter-spacing:1.4px;text-transform:uppercase;color:var(--accent-text);margin-bottom:8px}
+.fb .cells{grid-template-columns:6px 6px;gap:2px}.fb .cells span{width:6px;height:6px}.fb em{font-style:normal;color:var(--text)}
+footer p{margin:4px 0}
+
+.lang{margin-left:auto;display:flex;gap:6px;font:600 11px 'IBM Plex Mono',monospace;letter-spacing:1px}.lang a{padding:4px 9px;border:1px solid var(--border-strong);border-radius:4px;color:var(--text-mid);text-decoration:none}.lang a.on,.lang a:hover{border-color:var(--accent-line);color:var(--accent-text)}
+.top{display:flex;align-items:center;gap:10px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;margin:14px 0}
+.card{border:1px solid var(--border);border-radius:8px;background:var(--bg-panel);padding:14px 16px}.card h3{margin:0 0 6px;font-size:15.5px}.card p{margin:0;color:var(--text-mid);font-size:14px}
+.shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;margin:14px 0}.shots figure{margin:0}.shots img{width:100%;height:auto;border:1px solid var(--border);border-radius:6px;display:block}.shots figcaption{font-size:12.5px;color:var(--text-dim);margin-top:5px}
+.page{max-width:1060px;margin:0 auto;padding:26px 20px 10px}
+.legal li{margin:8px 0}.legal{padding-left:20px}
+.chooser{min-height:70vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:30px 20px}
+</style></head><body>
+<header class="hero"><div class="in"><div class="top"><div class="brand"><span class="cells"><span></span><span></span><span></span><span></span></span> GUAITA<small>co2</small></div><div class="lang"><a href="../pagesENG/help.html">EN</a></div></div><span class="tag">Manual d'ús · v0.2</span><h1>guaitaCO2</h1>
+<p class="lead">Compara materials i solucions constructives pel seu CO₂e embegut per mòdul del cicle de vida, no només pel cost. Tot al navegador, sense enviar dades enlloc.</p>
+<div class="btns"><a class="btn pri" href="../app/guaitaCO2.html">Obre l'app</a><a class="btn" href="index.html">Inici</a></div></div></header>
+<div class="wrap"><nav class="toc"><a href="#que">Què és</a><a href="#inici">Primers passos</a><a href="#moduls">Mòduls i indicadors</a><a href="#biblioteca">Biblioteca</a><a href="#obra">Obra</a><a href="#alt">Alternatives</a><a href="#scn">Escenaris i anàlisi</a><a href="#casos">Casos didàctics</a><a href="#io">Importa i exporta</a><a href="#limits">Limitacions i font</a><a href="#faq">Preguntes freqüents</a></nav><main>
+<section id="que"><h2>Què és</h2><div class="st">Eina de decisió ambiental, pedagògica</div><p>guaitaCO2 permet escollir materials i solucions per <b>criteri ambiental</b> i no només per cost. Treballes amb una <b>obra</b> (elements amb quantitat), hi assignes datasets d'<b>ÖKOBAUDAT</b> (EN 15804+A2) i en veus el CO₂e per mòdul, els punts calents i l'efecte de substituir materials. Serveix per a estudiants i professionals.</p>
+<div class="note">Tot funciona <b>localment</b>: el CSV d'ÖKOBAUDAT, els projectes i els resultats es processen al navegador i es desen en local (IndexedDB). No s'envia res a cap servidor. L'app no inclou cap dada d'ÖKOBAUDAT.</div></section>
+<section id="inici"><h2>Primers passos</h2><div class="st">Del CSV al primer resultat</div><ol class="steps">
+<li>Descarrega «ÖKOBAUDAT 2024-II as a CSV file with a period as the decimal separator» a <a href="https://www.oekobaudat.de/en/service/downloads.html" target="_blank" rel="noopener noreferrer">oekobaudat.de</a> (o amb el botó <b>Descarrega ÖKOBAUDAT</b> de l'app, que obre l'enllaç directe).</li>
+<li>A l'app, <b>Fitxer ▸ Importa ÖKOBAUDAT (CSV)…</b> o arrossega el fitxer a la finestra. Es llegeix en local (~50 MB, uns segons) i es desa al navegador.</li>
+<li>A <b>Biblioteca</b>, cerca un material i prem <b>+</b> per afegir-lo a l'<b>Obra</b>.</li>
+<li>Indica la quantitat i la unitat; mira el total i canvia els <b>mòduls comptats</b> a la barra superior.</li>
+<li>Amb la icona ⇄ d'un element, mira <b>alternatives</b> i substitueix.</li></ol></section>
+<section id="moduls"><h2>Mòduls i indicadors</h2><div class="st">EN 15978 / EN 15804+A2</div>
+<table class="tbl"><tr><th>Mòdul</th><th>Significat</th></tr><tr><td>A1–A3</td><td>Producte (matèries primeres, transport a fàbrica, fabricació)</td></tr><tr><td>A4–A5</td><td>Transport a obra i instal·lació</td></tr><tr><td>B1–B7</td><td>Ús: manteniment, reparació, substitució, rehabilitació, energia i aigua operatives</td></tr><tr><td>C1–C4</td><td>Final de vida</td></tr><tr><td>D</td><td>Beneficis i càrregues fora dels límits; es mostra a part i <b>no se suma</b></td></tr></table>
+<p>Indicadors en <b>kg CO₂e</b>: GWP-total (= fòssil + biogènic + luluc), fòssil, biogènic i luluc. Es trien a la barra superior; també la sortida en kg o t.</p>
+<div class="note warn">Una cel·la «·» vol dir <b>mòdul no declarat, no zero</b>. Els elements amb dades parcials s'avisen (estat PAR/SENSE) i el total és un mínim.</div></section>
+<section id="biblioteca"><h2>Biblioteca</h2><div class="st">Explorar ÖKOBAUDAT</div><p>Arbre de categories a l'esquerra; filtres per cerca de text, unitat, país, tipus (mitjana, genèric, específic, plantilla, representatiu) i mòdul amb dada. La taula mostra els mòduls en columnes agrupades per color amb mapa de calor; els botons <b>Columnes</b> amaguen o mostren grups. Clic al nom o doble clic: fitxa completa (variants d'escenari, dades físiques, enllaç al dataset original i <b>preu propi</b> opcional). Les columnes s'ordenen i es poden exportar a CSV.</p></section>
+<section id="obra"><h2>Obra</h2><div class="st">Elements, quantitats i conversions</div><p>Cada element porta nom, grup, dataset, quantitat, unitat, <b>factor de conversió</b> i preu opcional. Si la unitat de l'element difereix de la del dataset (p. ex. m³ davant kg), l'app proposa un factor a partir de la densitat, el pes superficial o lineal del dataset; el pots editar. Es poden afegir elements a mà, des de la biblioteca, des d'un CSV o des d'una selecció de guaitaPreus. Al peu hi ha els totals per mòdul i el cost. El diàleg d'element permet triar la variant d'escenari de cada mòdul.</p>
+<h3>Solucions per capes</h3><p><b>Edita ▸ Solucions per capes…</b>: defineix un mur, forjat o coberta com a llista de capes (dataset + quantitat per m² + factor + vida útil). Es desen al projecte (viatgen amb el JSON) i/o a la llibreria local del navegador, i a l'obra es comporten com un sol element. Un mòdul només és «complet» si totes les capes el declaren. També pots convertir un element en solució des del seu diàleg.</p>
+<h3>Vida útil i B4</h3><p>Cada element (o capa) pot tenir una vida útil en anys. Amb el <b>període d'estudi</b> (50 anys per defecte), B4 = (⌈període/vida⌉−1) × (A1–A5 + C1–C4 declarats). A la barra superior triïs si es compta el <b>B4 del dataset</b> o el <b>B4 per vida útil</b>; a l'obra es mostren sempre els dos valors.</p>
+<h3>Selecció múltiple</h3><p>Marca caselles (amb <kbd>Maj</kbd> per intervals) per canviar grup, vida útil o preu, duplicar o eliminar diversos elements alhora. A la biblioteca, els filtres es recorden i la taula és virtualitzada.</p></section>
+<section id="alt"><h2>Alternatives</h2><div class="st">Substituir per criteri ambiental</div><p>Mostra datasets de la mateixa unitat i categoria amb <b>Δ CO₂e</b>, Δ % i, si hi ha preus, <b>Δ €</b> i el quadrant (menys CO₂e i menys cost, etc.) i el sobrecost per tona evitada, en un pla de decisió Δ€ vs ΔCO₂e. Pots substituir a l'escenari actiu o crear-ne un de nou. El nivell de categoria es tria automàticament (el més específic amb almenys 3 alternatives) i es pot canviar. Per a solucions per capes, les alternatives són altres solucions de la llibreria, o bé es canvia un material amb ⇄ a la capa.</p>
+<div class="note">Compara a igual unitat funcional i comprova que l'alternativa compleix la mateixa funció (resistència, aïllament, durabilitat). El CO₂e no ho garanteix.</div></section>
+<section id="scn"><h2>Escenaris i anàlisi</h2><div class="st">Comparar i trobar els punts calents</div><p><b>Escenaris</b>: còpies de l'obra amb substitucions; es comparen totals, fases i element a element. <b>Anàlisi</b>: targetes resum, fases (A, A4–A5, B, C), grups d'elements, <b>Pareto</b> dels elements que més pesen i, opcionalment, kg CO₂e/m². La <b>cascada</b> explica, element a element, la diferència entre dos escenaris. A l'<b>Anàlisi</b>, si hi indiques la superfície, es compara el resultat amb <b>referències per m²</b> (LETI 2020/2030, RIBA 2030, amb la font citada) i amb les teves; només són comparables si compts els mateixos mòduls. El <b>preu ombra del carboni</b> (€/t) és buit i inactiu per defecte; si l'informes, es mostra «cost + CO₂e × preu».</p></section>
+<section id="casos"><h2>Casos didàctics</h2><div class="st">Per a docència</div><p><b>Fitxer ▸ Exporta ▸ Cas didàctic</b> crea un JSON amb l'enunciat, un objectiu (reducció mínima de CO₂e i sobrecost màxim) i l'estructura de l'obra. En obrir-lo apareix la <b>barra d'objectiu</b> (mode alumne): mostra en viu si es compleix la reducció de CO₂e i el límit de cost respecte al primer escenari. L'enunciat es consulta a <b>Ajuda ▸ Enunciat del cas</b>, i «Surt del cas» treu la barra. Els casos no inclouen una base de dades pròpia sinó els valors dels datasets que fan servir.</p></section>
+<section id="io"><h2>Importa i exporta</h2><div class="st">Formats</div><table class="tbl"><tr><th>Format</th><th>Ús</th></tr><tr><td>CSV d'ÖKOBAUDAT</td><td>Importa la biblioteca (Windows-1252, «;»)</td></tr><tr><td>Projecte JSON</td><td>Desa/obre l'obra amb escenaris (<kbd>Ctrl</kbd>+<kbd>S</kbd>)</td></tr><tr><td>Cas JSON</td><td>Enunciat + estructura</td></tr><tr><td>Selecció de guaitaPreus (JSON)</td><td>Afegeix conceptes a l'obra per assignar-hi dataset</td></tr><tr><td>Elements CSV</td><td>Importa i exporta elements amb quantitats</td></tr><tr><td>Informe imprimible</td><td>Fitxer ▸ Informe imprimible…: s'imprimeix o es desa com a PDF des del navegador</td></tr><tr><td>Resultats CSV / JSON</td><td>Exportació dels càlculs; també la biblioteca filtrada en CSV</td></tr></table>
+<p>Dreceres: <kbd>Ctrl</kbd>+<kbd>Z</kbd> / <kbd>Ctrl</kbd>+<kbd>Y</kbd> desfés i refés, <kbd>F1</kbd> ajuda.</p></section>
+<section id="limits"><h2>Limitacions i font</h2><div class="st">Cal tenir-ho present</div><ul><li>ÖKOBAUDAT és una base alemanya: útil per a ordres de magnitud i decisions relatives, no per certificar ni substituir una ACV d'edifici o una EPD.</li><li>No barregis dades d'A1–A3 d'una base amb mòduls d'una altra.</li><li>El preu del carboni és un criteri de decisió, no un cost real.</li><li>Les dades queden al navegador: desa el projecte en JSON per conservar-lo.</li></ul>
+<p>Dades: ÖKOBAUDAT, BMWSB / BBSR (<a href="https://www.oekobaudat.de" target="_blank" rel="noopener noreferrer">oekobaudat.de</a>), d'ús gratuït citant la font. L'app no redistribueix les dades.</p></section>
+<section id="faq"><h2>Preguntes freqüents</h2>
+<details><summary>Per què hi ha «·» en comptes de 0?</summary><p>Perquè el mòdul no està declarat al dataset. Un 0 vol dir que sí ho està i val zero.</p></details>
+<details><summary>On es desen les meves dades?</summary><p>Al navegador (IndexedDB). Si esborres les dades del lloc les perdràs: desa el projecte en JSON.</p></details>
+<details><summary>Funciona sense connexió?</summary><p>Sí. És un sol fitxer HTML autònom; només cal el CSV d'ÖKOBAUDAT descarregat.</p></details></section>
+</main></div>
+<footer><div class="fin"><div class="fb"><span class="cells"><span></span><span></span><span></span><span></span></span> Guaita<em>CO2</em></div><p><b>SBS BIM Consulting 2026</b> · © Jordi Subirós · AGPL-3.0-only · <a href="https://github.com/subi2/guaitaCO2" target="_blank" rel="noopener noreferrer">GitHub</a> · <a href="https://github.com/subi2/guaitaCO2/blob/main/LICENSE">LICENSE</a></p><p>Guaita Apps es distribueix «tal com és», sense cap garantia. Les eines estan pensades desde la recerca i com a suport tècnic i educatiu; la verificació dels resultats i la responsabilitat derivada del seu ús recauen únicament sobre l'usuari final.</p></div></footer>
+<script>(function(){var L=[].slice.call(document.querySelectorAll('.toc a')),S=L.map(function(a){return document.getElementById(a.getAttribute('href').slice(1))});function f(){var y=window.scrollY+80,k=0;S.forEach(function(s,i){if(s&&s.offsetTop<=y)k=i});L.forEach(function(a,i){a.classList.toggle('on',i===k)})}window.addEventListener('scroll',f);f()})();</script>
+
+</body></html>
