@@ -5,7 +5,7 @@
 
 - Landing: [`pageCAT/index.html`](pageCAT/index.html) · [`pagesENG/index.html`](pagesENG/index.html)
 - Ajuda / Help: [`pageCAT/ajuda.html`](pageCAT/ajuda.html) · [`pagesENG/help.html`](pagesENG/help.html)
-- App: [`app/guaitaCO2.html`](app/guaitaCO2.html) (v0.2; interface in Catalan)
+- App: [`app/guaitaCO2.html`](app/guaitaCO2.html) (v0.3; interface in Catalan)
 
 ## Ús / Use
 Obre `app/guaitaCO2.html`, descarrega el CSV d'ÖKOBAUDAT a <https://www.oekobaudat.de/en/service/downloads.html> i importa'l (Fitxer ▸ Importa).

@@ -2,7 +2,7 @@
 /* guaitaCO2 — build: concatena fonts, CSS, HTML i JS a un únic fitxer HTML autònom. */
 'use strict';
 const fs = require('fs'), path = require('path');
-const VER = '0.2';
+const VER = '0.3';
 const S = path.join(__dirname, 'src');
 const rd = f => fs.readFileSync(path.join(S, f), 'utf8');
 const JS = ['core.js', 'store.js', 'odb.js', 'calc.js', 'state.js', 'io.js', 'ui_lib.js', 'ui_obra.js', 'ui_alt.js', 'ui_scn.js', 'ui_ana.js', 'report.js', 'help.js', 'main.js'];
@@ -13,6 +13,8 @@ const js = JS.map(f => '/* ===== ' + f + ' ===== */\n' + rd('js/' + f)).join('\n
 const body = rd('body.html').replace(/__VER__/g, VER);
 const html = '<!DOCTYPE html>\n<html lang="ca"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">\n' +
   '<title>guaitaCO2 v.' + VER + '</title>\n<link rel="icon" type="image/svg+xml" href="' + icon + '">\n' +
+  '<link rel="manifest" href="../manifest.webmanifest"><link rel="apple-touch-icon" href="../icons/icon-192.png"><meta name="theme-color" content="#0E1116">\n' +
+  '<script>if("serviceWorker" in navigator&&location.protocol.indexOf("http")===0){navigator.serviceWorker.register("../sw.js").catch(function(){});}</script>\n' +
   '<!-- guaitaCO2 v.' + VER + ' — SBS BiM Consulting, Jordi Subirós — SPDX-License-Identifier: AGPL-3.0-only -->\n' +
   '<style>' + css + '</style></head><body>\n' + body +
   '<script>\n(function () {\n\'use strict\';\nconst VERSION = \'' + VER + '\';\n' + js + '\n})();\n</script></body></html>\n';
